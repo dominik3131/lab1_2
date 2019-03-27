@@ -27,7 +27,7 @@ public class MoneyTests {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void shouldThrowIllegalArgumentExceptionWithCurrencyMismatchWhenSubstracting() {
+    public void shouldThrowIllegalArgumentExceptionWithCurrencyMismatchWhenSubtracting() {
         Money eurMoney = new Money(1, Currency.getInstance("EUR"));
         Money usdMoney = new Money(1, Currency.getInstance("USD"));
         eurMoney.subtract(usdMoney);
@@ -41,10 +41,18 @@ public class MoneyTests {
     }
 
     @Test
-    public void shouldSubstractOne() {
+    public void shouldSubtractOne() {
         Money moneyOne = new Money(1);
         Money moneyTwo = new Money(2);
         assertThat(moneyTwo.subtract(moneyOne), equalTo(moneyOne));
     }
 
+    @Test
+    public void shouldReturnProperCurrencyCode() {
+        Money usdMoney = new Money(1, Currency.getInstance("USD"));
+        String code = "USD";
+        assertThat(usdMoney.getCurrencyCode()
+                           .equals(code),
+                equalTo(true));
+    }
 }
