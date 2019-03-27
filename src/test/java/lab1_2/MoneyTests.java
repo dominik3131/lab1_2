@@ -40,4 +40,11 @@ public class MoneyTests {
         assertThat(moneyOne.add(moneyOne), equalTo(moneyTwo));
     }
 
+    @Test
+    public void shouldSubstractOne() {
+        Money moneyOne = new Money(1);
+        Money moneyTwo = new Money(2);
+        assertThat(moneyTwo.subtract(moneyOne), equalTo(moneyOne));
+    }
+
 }
