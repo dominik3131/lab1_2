@@ -55,4 +55,13 @@ public class MoneyTests {
                            .equals(code),
                 equalTo(true));
     }
+
+    @Test
+    public void shouldReturnProperCurrency() {
+        Money usdMoney = new Money(1, Currency.getInstance("USD"));
+        Currency usd = Currency.getInstance("USD");
+        assertThat(usdMoney.getCurrency()
+                           .equals(usd),
+                equalTo(true));
+    }
 }
