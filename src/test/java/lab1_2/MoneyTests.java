@@ -25,4 +25,12 @@ public class MoneyTests {
         Money usdMoney = new Money(1, Currency.getInstance("USD"));
         eurMoney.add(usdMoney);
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void shouldThrowIllegalArgumentExceptionWithCurrencyMismatchWhenSubstracting() {
+        Money eurMoney = new Money(1, Currency.getInstance("EUR"));
+        Money usdMoney = new Money(1, Currency.getInstance("USD"));
+        eurMoney.subtract(usdMoney);
+    }
+
 }
