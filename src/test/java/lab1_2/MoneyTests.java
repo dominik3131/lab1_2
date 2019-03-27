@@ -33,4 +33,11 @@ public class MoneyTests {
         eurMoney.subtract(usdMoney);
     }
 
+    @Test
+    public void shouldAddOne() {
+        Money moneyOne = new Money(1);
+        Money moneyTwo = new Money(2);
+        assertThat(moneyOne.add(moneyOne), equalTo(moneyTwo));
+    }
+
 }
